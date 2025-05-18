@@ -9,12 +9,7 @@ jobs:
     steps:
       - name: 23f2002388@ds.study.iitm.ac.in
         run: echo "Hello, world!"
-
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
+        
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
