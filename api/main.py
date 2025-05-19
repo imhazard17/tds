@@ -18,8 +18,10 @@ def load_data(filename: str = "q-vercel-python.json") -> dict:
 DATA = marks_dict = {student['name']: student['marks'] for student in load_data()}
 
 @app.get("/api")
-def get_marks(name: List[str] = Query(..., description="Names to look up")) -> dict:
+def get_marks(name: List[str]) -> dict:
     marks = []
+    if len(name) == 0:
+        return {"marks": marks}
     for n in name:
         if n in list(DATA.keys()):
             marks.append(DATA[n])
