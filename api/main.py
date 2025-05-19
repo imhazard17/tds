@@ -27,4 +27,4 @@ def get_marks(name: List[str]) -> dict:
             marks.append(DATA[n])
         else:
             marks.append(None)
-    return {"marks": marks}
+    return {"marks|": marks}
