@@ -1,8 +1,17 @@
 from fastapi import FastAPI, Query, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 import json
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],            # ← wildcard: all origins allowed
+    allow_methods=["GET"],          # ← only GET; use ["*"] to allow all methods
+    allow_headers=["*"],            # ← all request headers permitted
+    allow_credentials=False,        # ← set True only if you need cookies/auth
+)
 
 # Load data from the JSON file once at startup
 def load_data(filename: str = "q-vercel-python.json") -> dict:
